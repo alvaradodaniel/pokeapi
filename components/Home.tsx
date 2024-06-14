@@ -22,8 +22,8 @@ export function Home({navigation}) {
 
   return (
 
-    <View onPress={handleClick}>
-        {list.map((element) => (<Card key={element?.id} data={element} navigation={navigation}/>))}
+    <View onPress={handleClick} style={styles.list}>
+       {list.map((element, index) => (<Card key={element?.id || index} data={element} navigation={navigation}/>))}
     </View>
 
   );
@@ -34,5 +34,11 @@ const styles = StyleSheet.create({
     fontSize: 28,
     lineHeight: 32,
     marginTop: -6,
+  },
+  list: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    padding: 70,
   },
 });
